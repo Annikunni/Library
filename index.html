@@ -6,6 +6,17 @@
     <title>Library</title>
 
     <style>
+
+		body::after {
+			position: absolute;
+			width: 0;
+			height: 0;
+			overflow: hidden;
+			z-index: -1;
+			content: url(heart.jpeg);
+		}
+
+
        #myCanvas {
         background-color: black;
        }
@@ -15,28 +26,61 @@
         height: 100%;
         }
 
-		/*.img1 {
-			position: absolute;
-			top: 30px;
-			left: 30px;
-		}*/
-
-		.img2 {
+		.img1 {
 			position: absolute;
 			top: 10px;
 			right: 10px;
+			transition: transform .2s;
 		}
-       
+
+		.img1:hover {
+			-ms-transform: scale(1.5); 
+           -webkit-transform: scale(1.5); 
+            transform: scale(2.5); 
+			margin-top: 150px;
+			margin-right: 300px;
+		}
+
+		.text {
+			position: absolute;
+			top: 10px;
+			width: 100vw;
+			height: 200px;
+			color: orangered;
+			font-size: 40px;
+			font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+		}
+
+	
     </style>
     
 
 </head>
 <body>
-    <div class="img1"><img src="heart.jpg" height="200px"></div>
+	 <!-- <button type="button" onclick="zoomin()"> </button>
+	<button type="button" onclick="zoomout()"> </button> -->
 	<div class="img2"><img src="heartpixel.jpeg" height="200px"></div>
-    <canvas id="myCanvas" resize></canvas>
+	<div class="text"><center>Color Code</center></div>
+    <div class="img1"><img src="heart.jpg" height="200px"></div>
+    <canvas id="myCanvas" resize></canvas> 
 
-    
+	
+      
+   
+			
+    <script type="text/javascript">
+		function zoomin() {
+            var GFG = document.getElementById("img1");
+            var currWidth = GFG.clientWidth;
+            GFG.style.width = (currWidth + 500) + "px";
+        }
+          
+        function zoomout() {
+            var GFG = document.getElementById("img1");
+            var currWidth = GFG.clientWidth;
+            GFG.style.width = (currWidth - 500) + "px";
+        }
+	</script> 
     
     <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.17/paper-full.min.js" integrity="sha512-NApOOz1j2Dz1PKsIvg1hrXLzDFd62+J0qOPIhm8wueAnk4fQdSclq6XvfzvejDs6zibSoDC+ipl1dC66m+EoSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     

@@ -14,13 +14,26 @@
         width: 100%;
         height: 100%;
         }
+
+		/*.img1 {
+			position: absolute;
+			top: 30px;
+			left: 30px;
+		}*/
+
+		.img2 {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+		}
        
     </style>
     
 
 </head>
 <body>
-    <div class="img"><img src="beach.jpg" height="200px"></div>
+    <div class="img1"><img src="heart.jpg" height="200px"></div>
+	<div class="img2"><img src="heartpixel.jpeg" height="200px"></div>
     <canvas id="myCanvas" resize></canvas>
 
     
@@ -30,110 +43,110 @@
 
 
     <script type="text/paperscript" canvas="myCanvas">
-        var path = new Path(new Point(20, 20), new Point(50,20));
-var path2 = new Path(new Point(20, 20), new Point(50,20));
-var path3 = new Path(new Point(20, 20), new Point(50,20));
-var path4 = new Path(new Point(20, 20), new Point(50,20));
-var path5 = new Path(new Point(20, 20), new Point(50,20));
-var path6 = new Path(new Point(20, 20), new Point(50,20));
-var path7 = new Path(new Point(20, 20), new Point(50,20));
-var path8 = new Path(new Point(20, 20), new Point(50,20));
-var path9 = new Path(new Point(20, 20), new Point(50,20));
-var path10 = new Path(new Point(20, 20), new Point(50,20));
-var path11 = new Path(new Point(20, 20), new Point(50,20));
-var path12 = new Path(new Point(20, 20), new Point(50,20));
-var path13 = new Path(new Point(20, 20), new Point(50,20));
-var path14 = new Path(new Point(20, 20), new Point(50,20));
-var path15 = new Path(new Point(20, 20), new Point(50,20));
+        var path = new Path(new Point(45, 20), new Point(155,20));
+var path2 = new Path(new Point(45, 20), new Point(155,20));
+var path3 = new Path(new Point(45, 20), new Point(155,20));
+var path4 = new Path(new Point(45, 20), new Point(155,20));
+var path5 = new Path(new Point(45, 20), new Point(155,20));
+var path6 = new Path(new Point(45, 20), new Point(155,20));
+var path7 = new Path(new Point(45, 20), new Point(155,20));
+var path8 = new Path(new Point(45, 20), new Point(155,20));
+var path9 = new Path(new Point(45, 20), new Point(155,20));
+var path10 = new Path(new Point(45, 20), new Point(155,20));
+var path11 = new Path(new Point(45, 20), new Point(155,20));
+var path12 = new Path(new Point(45, 20), new Point(155,20));
+var path13 = new Path(new Point(45, 20), new Point(155,20));
+var path14 = new Path(new Point(45, 20), new Point(155,20));
+var path15 = new Path(new Point(45, 20), new Point(155,20));
 
 
 path.style = {
-	strokeColor: '#E9F2FB',
-	strokeWidth: 30,
+	strokeColor: '#f6e4da',
+	strokeWidth: 55,
     
 };
 
 path2.style = {
-	strokeColor: '#bdd3e0',
-	strokeWidth: 30,
+	strokeColor: '#c9d6e1',
+	strokeWidth: 55,
     
 };
 
 path3.style = {
-	strokeColor: '#a5c5da',
-	strokeWidth: 30,
+	strokeColor: '#e7e2e6',
+	strokeWidth: 55,
     
 };
 
 path4.style = {
-	strokeColor: '#8ec7e0',
-	strokeWidth: 30,
+	strokeColor: '#ddcfce',
+	strokeWidth: 55,
     
 };
 
 path5.style = {
-	strokeColor: '#64b8d2',
-	strokeWidth: 30,
+	strokeColor: '#f6b794',
+	strokeWidth: 55,
     
 };
 
 path6.style = {
-	strokeColor: '#50d0eb',
-	strokeWidth: 30,
+	strokeColor: '#f5d9b7',
+	strokeWidth: 55,
     
 };
 
 path7.style = {
-	strokeColor: '#0f8db0',
-	strokeWidth: 30,
+	strokeColor: '#330d0b',
+	strokeWidth: 55,
     
 };
 
 path8.style = {
-	strokeColor: '#075063',
-	strokeWidth: 30,
+	strokeColor: '#957194',
+	strokeWidth: 55,
     
 };
 
 path9.style = {
-	strokeColor: '#012c3c',
-	strokeWidth: 30,
+	strokeColor: '#3c6691',
+	strokeWidth: 55,
     
 };
 
 path10.style = {
-	strokeColor: '#7d9ba3',
-	strokeWidth: 30,
+	strokeColor: '#664f63',
+	strokeWidth: 55,
     
 };
 
 path11.style = {
-	strokeColor: '#09576f',
-	strokeWidth: 30,
+	strokeColor: '#cfa9a6',
+	strokeWidth: 55,
     
 };
 
 path12.style = {
-	strokeColor: '#82837d',
-	strokeWidth: 30,
+	strokeColor: '#fde981',
+	strokeWidth: 55,
     
 };
 
 path13.style = {
-	strokeColor: '#a29f96',
-	strokeWidth: 30,
+	strokeColor: '#0b0c10',
+	strokeWidth: 55,
     
 };
 
 path14.style = {
-	strokeColor: '#c3cacf',
-	strokeWidth: 30,
+	strokeColor: '#591002',
+	strokeWidth: 55,
     
 };
 
 path15.style = {
-	strokeColor: '#b2b3af',
-	strokeWidth: 30,
+	strokeColor: '#aa2c02',
+	strokeWidth: 55,
     
 };
 
@@ -154,98 +167,171 @@ var symbol13 = new Symbol(path13);
 var symbol14 = new Symbol(path14);
 var symbol15 = new Symbol(path15);
 
-// Place 30 instances of the symbol in the project in random
-// positions in the view:
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol1.place(position);
-	
+var drawGridLines = function(num_rectangles_wide, num_rectangles_tall, boundingRect) {
+    var width_per_rectangle = boundingRect.width / num_rectangles_wide;
+    var height_per_rectangle = boundingRect.height / num_rectangles_tall;
+    for (var i = 0; i <= num_rectangles_wide; i++) {
+        var xPos = boundingRect.left + i * width_per_rectangle;
+        var topPoint = new paper.Point(xPos, boundingRect.top);
+        var bottomPoint = new paper.Point(xPos, boundingRect.bottom);
+        var aLine = new paper.Path.Line(topPoint, bottomPoint);
+        aLine.strokeColor = 'black';
+    }
+    for (var i = 0; i <= num_rectangles_tall; i++) {
+        var yPos = boundingRect.top + i * height_per_rectangle;
+        var leftPoint = new paper.Point(boundingRect.left, yPos);
+        var rightPoint = new paper.Point(boundingRect.right, yPos);
+        var aLine = new paper.Path.Line(leftPoint, rightPoint);
+        aLine.strokeColor = 'black';
+    }
 }
 
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol2.place(position);
-	
+drawGridLines(12, 12, paper.view.bounds);
+
+var drawGridRects = function(num_rectangles_wide, num_rectangles_tall, boundingRect) {
+    var width_per_rectangle = boundingRect.width / num_rectangles_wide;
+    var height_per_rectangle = boundingRect.height / num_rectangles_tall;
+    for (var i = 0; i < num_rectangles_wide; i++) {
+        for (var j = 0; j < num_rectangles_tall; j++) {
+            var aRect = new paper.Path.Rectangle(boundingRect.left + i * width_per_rectangle, boundingRect.top + j * height_per_rectangle, width_per_rectangle, height_per_rectangle);
+            aRect.strokeColor = 'white';
+            //aRect.fillColor = Color.random();
+        }
+    }
 }
 
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol3.place(position);
+drawGridRects(12, 12, paper.view.bounds);
+
+tool.onKeyDown = function(event) {
+	if (event.key == '1') {
+		for (var i = 0; i <5; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol1.place(position);
+			
+		}
+	}
+
+	if (event.key == '2') {
+		for (var i = 0; i <16; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol2.place(position);
+			
+		}
+	}
+
+	if (event.key == '3') {
+		for (var i = 0; i <14; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol3.place(position);
+			
+		}
+	}
+
+	if (event.key == '4') {
+		for (var i = 0; i <12; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol4.place(position);
+			
+		}
+	}
+
+	if (event.key == '5') {
+		for (var i = 0; i <16; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol5.place(position);
+			
+		}
+	}
+
+	if (event.key == '6') {
+		for (var i = 0; i <7; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol6.place(position);
+			
+		}
+	}
 	
+	if (event.key == '7') {
+		for (var i = 0; i <7; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol7.place(position);
+			
+		}
+	}
+
+	if (event.key == '8') {
+		for (var i = 0; i <10; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol8.place(position);
+			
+		}
+	}
+
+	if (event.key == '9') {
+		for (var i = 0; i <15; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol9.place(position);
+			
+		}
+	}
+
+	if (event.key == '0') {
+		for (var i = 0; i <3; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol10.place(position);
+			
+		}		
+	}
+
+	if (event.key == 'q') {
+		for (var i = 0; i <8; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol11.place(position);
+			
+		}	
+	}
+
+	if (event.key == 'w') {
+		for (var i = 0; i <6; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol12.place(position);
+			
+		}
+	}
+
+	if (event.key == 'e') {
+		for (var i = 0; i <14; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol13.place(position);
+			
+		}
+	}
+
+	if (event.key == 'r') {
+		for (var i = 0; i <8; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol14.place(position);
+			
+		}		
+	}
+
+	if (event.key == 't') {
+		for (var i = 0; i <6; i++) {
+			var position = view.size * Point.random();
+			var placed = symbol15.place(position);
+			
+		}			
+	}
+
+	
+
+
+
+
 }
 
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol4.place(position);
-	
-}
 
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol5.place(position);
-	
-}
 
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol6.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol7.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol8.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol9.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol10.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol11.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol12.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol13.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol14.place(position);
-	
-}
-
-for (var i = 0; i <30; i++) {
-	var position = view.size * Point.random();
-	var placed = symbol15.place(position);
-	
-}
 
 /*function onFrame(event) {
 	// Each frame, rotate the definition

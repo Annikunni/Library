@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <script type="text/javascript"  src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.17/paper-full.min.js" integrity="sha512-NApOOz1j2Dz1PKsIvg1hrXLzDFd62+J0qOPIhm8wueAnk4fQdSclq6XvfzvejDs6zibSoDC+ipl1dC66m+EoSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+   <!-- <script type="text/paperscript" canvas="canvas">
+        var bob = new Raster('Bob');
+        bob.position = view.center;
+    </script>-->
+</head>
+
+<body>
+    <canvas id="canvas" class="canvas" resize></canvas>
+    <!--<img id="bob" src="flower.jpg" style="display: none;">-->
+
+
+    <script type="text/paperscript" canvas="myCanvas">
+
+        var drawGridLines = function(num_rectangles_wide, num_rectangles_tall, boundingRect) {
+            var width_per_rectangle = boundingRect.width / num_rectangles_wide;
+            var height_per_rectangle = boundingRect.height / num_rectangles_tall;
+            for (var i = 0; i <= num_rectangles_wide; i++) {
+                var xPos = boundingRect.left + i * width_per_rectangle;
+                var topPoint = new paper.Point(xPos, boundingRect.top);
+                var bottomPoint = new paper.Point(xPos, boundingRect.bottom);
+                var aLine = new paper.Path.Line(topPoint, bottomPoint);
+                aLine.strokeColor = 'black';
+            }
+            for (var i = 0; i <= num_rectangles_tall; i++) {
+                var yPos = boundingRect.top + i * height_per_rectangle;
+                var leftPoint = new paper.Point(boundingRect.left, yPos);
+                var rightPoint = new paper.Point(boundingRect.right, yPos);
+                var aLine = new paper.Path.Line(leftPoint, rightPoint);
+                aLine.strokeColor = 'black';
+            }
+        }
+        
+        drawGridLines(4, 4, paper.view.bounds);
+
+        var drawGridRects = function(num_rectangles_wide, num_rectangles_tall, boundingRect) {
+            var width_per_rectangle = boundingRect.width / num_rectangles_wide;
+            var height_per_rectangle = boundingRect.height / num_rectangles_tall;
+            for (var i = 0; i < num_rectangles_wide; i++) {
+                for (var j = 0; j < num_rectangles_tall; j++) {
+                    var aRect = new paper.Path.Rectangle(boundingRect.left + i * width_per_rectangle, boundingRect.top + j * height_per_rectangle, width_per_rectangle, height_per_rectangle);
+                    aRect.strokeColor = 'white';
+                    aRect.fillColor = 'black';
+                }
+            }
+        }
+        
+        drawGridRects(4, 4, paper.view.bounds);
+    
+      
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
